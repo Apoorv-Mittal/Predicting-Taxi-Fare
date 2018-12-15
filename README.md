@@ -421,7 +421,7 @@ plt.scatter(x = data.pickup_longitude, y = data.pickup_latitude )
 
 
 
-    <matplotlib.collections.PathCollection at 0x121996d68>
+    <matplotlib.collections.PathCollection at 0x11ec2a588>
 
 
 
@@ -755,7 +755,7 @@ axes.imshow(nyc, zorder=0, extent=coordinate_tuple)
 
 
 
-    <matplotlib.image.AxesImage at 0x121942cc0>
+    <matplotlib.image.AxesImage at 0x11ebd6a20>
 
 
 
@@ -789,7 +789,7 @@ axes.imshow(nyc, zorder=0, extent=coordinate_tuple)
 
 
 
-    <matplotlib.image.AxesImage at 0x121924a20>
+    <matplotlib.image.AxesImage at 0x11ebc37f0>
 
 
 
@@ -1187,7 +1187,7 @@ OLS_model.summary()
   <th>Date:</th>             <td>Fri, 14 Dec 2018</td> <th>  Prob (F-statistic):</th>   <td>  0.00</td>   
 </tr>
 <tr>
-  <th>Time:</th>                 <td>18:15:19</td>     <th>  Log-Likelihood:    </th> <td>-2.0204e+06</td>
+  <th>Time:</th>                 <td>18:41:50</td>     <th>  Log-Likelihood:    </th> <td>-2.0204e+06</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>722941</td>      <th>  AIC:               </th>  <td>4.041e+06</td> 
@@ -1491,7 +1491,7 @@ mean_squared_error( y_valid , rfr_prediction )
 
 
 
-    12.273406892111826
+    12.257310301928364
 
 
 
@@ -1503,7 +1503,7 @@ rfr.score(X_train[features], y_train)
 
 
 
-    0.974825737676259
+    0.9740410000508551
 
 
 
@@ -1605,7 +1605,7 @@ mean_squared_error( y_valid , dt_prediction )
 
 
 
-    22.530774234898182
+    22.444567395354817
 
 
 
@@ -1646,7 +1646,7 @@ scores = cross_val_score(SVR, X_train[features], y_train, cv=10)
 print("Accuracy: %0.2f (+/- %0.2f) for Linear SVR from 10 fold cross-validation" % (scores.mean(), scores.std() * 2))
 ```
 
-    Accuracy: 0.73 (+/- 0.21) for Linear SVR from 10 fold cross-validation
+    Accuracy: 0.76 (+/- 0.06) for Linear SVR from 10 fold cross-validation
 
 
 
@@ -1662,7 +1662,7 @@ mean_squared_error( y_valid , SVR_prediction )
 
 
 
-    18.803697231031734
+    35.77671598388294
 
 
 
@@ -1674,7 +1674,7 @@ SVR.score(X_train[features], y_train)
 
 
 
-    0.7846778770012492
+    0.5907816139759132
 
 
 
@@ -1781,24 +1781,24 @@ plt.show()
 ```
 
     Feature ranking:
-    1. feature haversine_distance (0.795934)
-    2. feature dropoff_longitude (0.039336)
-    3. feature long_diff (0.039039)
-    4. feature year (0.024484)
-    5. feature pickup_longitude (0.021793)
-    6. feature dropoff_latitude (0.020717)
-    7. feature lat_diff (0.019055)
-    8. feature pickup_latitude (0.016454)
-    9. feature hour (0.013310)
-    10. feature day (0.006686)
-    11. feature passenger_count (0.003193)
+    1. feature haversine_distance (0.814605)
+    2. feature long_diff (0.046292)
+    3. feature dropoff_longitude (0.035391)
+    4. feature year (0.024158)
+    5. feature pickup_longitude (0.017799)
+    6. feature dropoff_latitude (0.016371)
+    7. feature lat_diff (0.015687)
+    8. feature pickup_latitude (0.012202)
+    9. feature hour (0.010810)
+    10. feature day (0.004602)
+    11. feature passenger_count (0.002085)
 
 
 
 ![png](asset/output_136_1.png)
 
 
-As you can see above our `fare_amount` is mostly dependent on `haversine_distance` and is somewhat dependent on `long_diff`, `year` and `dropoff_longitude`. Therefore predicting the fares can be directly tied to needing atleast these features for a good prediction. Of course we can later add in the new data and the importance of features can change. Right now we are able to predict a really good percentage of the data with a good accurancy. I wanted to end by running this code which would plot the learning curve and then show that we could benefit from fitting more data but could not as it took forever on my computer.  
+As you can see above our `fare_amount` is mostly dependent on `haversine_distance` and is somewhat dependent on `long_diff`, `year` and `dropoff_longitude`. Therefore predicting the fares can be directly tied to needing atleast these features for a good prediction. Of course we can later add in the new data and the importance of features can change. Right now we are able to predict data with a good accurancy. I wanted to end by running this code which would plot the learning curve and then show that we could benefit from fitting more data but could not as it took forever on my computer. But I am sure that adding more data will definitely increase the accuracy of our model. 
 
 ```
 from sklearn.model_selection import learning_curve
